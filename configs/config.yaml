@@ -1,0 +1,105 @@
+project:
+  name: "Expedia Travel Advertising Intelligence & Forecasting Platform"
+  version: "1.0.0"
+  seed: 42
+
+paths:
+  raw_data_dir: "data/raw"
+  synthetic_data_dir: "data/synthetic"
+  processed_data_dir: "data/processed"
+  artifacts_dir: "artifacts"
+  models_dir: "artifacts/models"
+  reports_dir: "artifacts/reports"
+  mlflow_tracking_uri: "sqlite:///mlflow.db"
+  mlflow_artifact_root: "mlruns"
+
+data_generation:
+  num_travelers: 100000
+  num_campaigns: 10000
+  num_impressions: 1000000
+  num_inventory_days: 1400
+  num_bids: 500000
+  num_targeting_signals: 200000
+  start_date: "2022-01-01"
+  campaign_start_date: "2024-07-01"
+  campaign_end_date: "2025-11-30"
+  countries:
+    - "US"
+    - "UK"
+    - "CA"
+    - "DE"
+    - "FR"
+    - "JP"
+    - "AU"
+    - "IN"
+    - "BR"
+    - "MX"
+    - "ES"
+    - "IT"
+  placements:
+    - "homepage_hero"
+    - "search_results_top"
+    - "hotel_detail_sidebar"
+    - "checkout_upsell"
+    - "mobile_app_feed"
+    - "flight_confirmation"
+
+spark:
+  app_name: "ExpediaAdIntelligenceETL"
+  master: "local[*]"
+  driver_memory: "4g"
+  shuffle_partitions: 16
+  sql_adaptive_enabled: true
+  watermark_delay: "10 minutes"
+  window_duration: "5 minutes"
+
+kafka:
+  bootstrap_servers: "localhost:9092"
+  impressions_topic: "ad_impressions_stream"
+  targeting_signals_topic: "targeting_signals_stream"
+  predictions_topic: "realtime_predictions"
+  consumer_group: "expedia-ad-streaming-group"
+
+database:
+  postgres_host: "localhost"
+  postgres_port: 5432
+  postgres_db: "expedia_ads"
+  postgres_user: "adtech"
+  postgres_password: "adtech_dev_password"
+  sqlite_fallback_path: "data/processed/expedia_ads.db"
+
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  cache_ttl_seconds: 300
+
+aws:
+  region: "us-west-2"
+  s3_bucket: "expedia-ad-intelligence-datalake"
+  s3_local_fallback_dir: "data/s3_datalake"
+  cloudwatch_log_group: "/expedia/ad-intelligence"
+  sagemaker_role_arn: "arn:aws:iam::123456789012:role/SageMakerExecutionRole"
+
+ml:
+  mlflow_experiment_reach: "audience-reach-forecasting"
+  mlflow_experiment_inventory: "inventory-forecasting"
+  mlflow_experiment_performance: "campaign-performance-prediction"
+  test_size_days: 60
+  inventory_horizons: [7, 14, 30]
+  random_state: 42
+  confidence_level: 0.95
+
+monitoring:
+  psi_warning_threshold: 0.1
+  psi_critical_threshold: 0.25
+  mape_degradation_threshold: 0.20
+  rmse_degradation_ratio: 1.25
+  latency_p95_ms_threshold: 250.0
+  min_r2_threshold: 0.65
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+  log_level: "INFO"

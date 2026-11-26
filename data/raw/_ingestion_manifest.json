@@ -1,0 +1,51 @@
+{
+  "travelers.csv": {
+    "sha256": "7997bf4d354d901498652b5f1498784b6d5d7779b4a5f2a7572efd2b3dc85142",
+    "rows": 100000,
+    "columns": 8,
+    "s3_uri": "/Users/harimohan/Desktop/Expedia Travel Advertising Intelligence & Forecasting Platform/data/s3_datalake/expedia-ad-intelligence-datalake/raw/travelers/travelers.csv",
+    "ingested_at": "2026-11-26T08:43:55.342568+00:00"
+  },
+  "campaigns.csv": {
+    "sha256": "5b40ab0877739c538b6ac622502342ddd7354132367099d2316fcaa898825d9f",
+    "rows": 10000,
+    "columns": 10,
+    "s3_uri": "/Users/harimohan/Desktop/Expedia Travel Advertising Intelligence & Forecasting Platform/data/s3_datalake/expedia-ad-intelligence-datalake/raw/campaigns/campaigns.csv",
+    "ingested_at": "2026-11-26T08:43:55.351190+00:00"
+  },
+  "ad_impressions.csv": {
+    "sha256": "16370a79b89b2553377d1bf32ea55f3a4a075d082a4be38238eb04ce202dbc11",
+    "rows": 1000000,
+    "columns": 9,
+    "s3_uri": "/Users/harimohan/Desktop/Expedia Travel Advertising Intelligence & Forecasting Platform/data/s3_datalake/expedia-ad-intelligence-datalake/raw/ad_impressions/ad_impressions.csv",
+    "ingested_at": "2026-11-26T08:43:56.014473+00:00"
+  },
+  "ad_inventory.csv": {
+    "sha256": "d12a50c0a14be7880fb27e5aace96d4deac0146f9eb6ff121452002287901dfe",
+    "rows": 100800,
+    "columns": 7,
+    "s3_uri": "/Users/harimohan/Desktop/Expedia Travel Advertising Intelligence & Forecasting Platform/data/s3_datalake/expedia-ad-intelligence-datalake/raw/ad_inventory/ad_inventory.csv",
+    "ingested_at": "2026-11-26T08:43:56.073817+00:00"
+  },
+  "bidding_data.csv": {
+    "sha256": "2c0937cef69a7026bc069d2cda047f4626d68db595203f3cc99da632961a925b",
+    "rows": 500000,
+    "columns": 7,
+    "s3_uri": "/Users/harimohan/Desktop/Expedia Travel Advertising Intelligence & Forecasting Platform/data/s3_datalake/expedia-ad-intelligence-datalake/raw/bidding_data/bidding_data.csv",
+    "ingested_at": "2026-11-26T08:43:56.405262+00:00"
+  },
+  "targeting_signals.csv": {
+    "sha256": "fea2facdc00e57f22a700e192017d49464fcd041dc1b5920e90f84679161b503",
+    "rows": 200000,
+    "columns": 7,
+    "s3_uri": "/Users/harimohan/Desktop/Expedia Travel Advertising Intelligence & Forecasting Platform/data/s3_datalake/expedia-ad-intelligence-datalake/raw/targeting_signals/targeting_signals.csv",
+    "ingested_at": "2026-11-26T08:43:56.525306+00:00"
+  },
+  "experiment_events.csv": {
+    "sha256": "f27b72f17170df32df6f28eb36c36a379e9d0b76137369a74915791c16efe230",
+    "rows": 120000,
+    "columns": 20,
+    "s3_uri": "/Users/harimohan/Desktop/Expedia Travel Advertising Intelligence & Forecasting Platform/data/s3_datalake/expedia-ad-intelligence-datalake/raw/experiment_events/experiment_events.csv",
+    "ingested_at": "2026-11-26T08:43:56.649690+00:00"
+  }
+}

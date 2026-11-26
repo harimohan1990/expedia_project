@@ -1,0 +1,27 @@
+{
+  "title": "Expedia Travel Ad Intelligence - Model & API Observability",
+  "schemaVersion": 38,
+  "version": 1,
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "API Request Rate (req/s)",
+      "targets": [{ "expr": "rate(expedia_ad_prediction_requests_total[1m])" }]
+    },
+    {
+      "type": "timeseries",
+      "title": "Prediction Latency p95 (seconds)",
+      "targets": [{ "expr": "histogram_quantile(0.95, sum(rate(expedia_ad_prediction_latency_seconds_bucket[5m])) by (le, endpoint))" }]
+    },
+    {
+      "type": "gauge",
+      "title": "Feature Drift PSI",
+      "targets": [{ "expr": "expedia_ad_feature_psi" }]
+    },
+    {
+      "type": "stat",
+      "title": "Drift Alerts Triggered",
+      "targets": [{ "expr": "sum(expedia_ad_drift_alerts_total)" }]
+    }
+  ]
+}
